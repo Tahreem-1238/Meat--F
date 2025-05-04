@@ -1,0 +1,85 @@
+.meat-donation-container {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 3rem 2rem;
+    background-color: #0a0a0a;
+    border-radius: 16px;
+    color: white;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  }
+  
+  .meat-donation-container h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: maroon;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  
+  .donation-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  
+  .donation-form input,
+  .donation-form select,
+  .donation-form textarea {
+    padding: 1rem;
+    border: 1px solid #333;
+    border-radius: 10px;
+    background-color: #1c1c1c;
+    color: white;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border 0.3s ease;
+  }
+  
+  .donation-form input:focus,
+  .donation-form select:focus,
+  .donation-form textarea:focus {
+    border-color: maroon;
+    outline: none;
+  }
+  
+  .donation-form textarea {
+    resize: vertical;
+    grid-column: 1 / -1;
+  }
+  
+  .donation-form button {
+    grid-column: 1 / -1;
+    background-color: maroon;
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .donation-form button:hover {
+    background-color: #a00000;
+  }
+  
+  /* Responsive for mobile */
+  @media screen and (max-width: 768px) {
+    .donation-form {
+      grid-template-columns: 1fr;
+    }
+  }
+  .confirmation-message {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #1c1c1c;
+    color: lightgreen;
+    border-left: 5px solid maroon;
+    font-size: 1.1rem;
+    text-align: center;
+    border-radius: 8px;
+  }
+  
+  

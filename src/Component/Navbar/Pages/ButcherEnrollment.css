@@ -1,0 +1,131 @@
+/* Main Container */
+.enrollment-container {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 40px;
+  background-color: #121212;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(128, 0, 0, 0.5);
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Heading */
+.enrollment-heading {
+  text-align: center;
+  font-size: 30px;
+  color: maroon;
+  margin-bottom: 30px;
+}
+
+/* Form Styling */
+.enrollment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Input & Textarea */
+.enrollment-form input,
+.enrollment-form textarea,
+.enrollment-form select {
+  padding: 12px 15px;
+  border: 2px solid #2a2a2a;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  color: #f0f0f0;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+.enrollment-form input:focus,
+.enrollment-form textarea:focus,
+.enrollment-form select:focus {
+  outline: none;
+  border-color: maroon;
+  background-color: #292929;
+  box-shadow: 0 0 5px maroon;
+}
+
+/* File input style */
+input[type="file"] {
+  padding: 10px;
+  background-color: #1e1e1e;
+  border: none;
+  color: #ccc;
+}
+
+/* Select Dropdown */
+.enrollment-form select {
+  cursor: pointer;
+}
+
+/* Button Styling */
+.enrollment-form button {
+  background: linear-gradient(to right, #800000, #b30000);
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.enrollment-form button:hover {
+  background: linear-gradient(to right, #b30000, #800000);
+  box-shadow: 0 0 15px rgba(128, 0, 0, 0.5);
+  transform: scale(1.03);
+}
+
+/* Success Message */
+.success-message {
+  margin-top: 30px;
+  padding: 15px 20px;
+  background-color: #202020;
+  border-left: 5px solid maroon;
+  border-radius: 10px;
+  font-size: 16px;
+  color: #cfcfcf;
+  animation: slideUp 0.5s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .enrollment-container {
+    padding: 25px;
+  }
+
+  .enrollment-heading {
+    font-size: 24px;
+  }
+
+  .enrollment-form button {
+    font-size: 16px;
+  }
+}
