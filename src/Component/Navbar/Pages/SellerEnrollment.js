@@ -1,76 +1,87 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './SellerEnrollment.css';
 
-export default function SellerEnrollment() {
-  const [sellerName, setSellerName] = useState('');
-  const [selection, setSelection] = useState('');
+const SellerEnrollment = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [profilePic, setProfilePic] = useState(null);
+  const [submitted, setSubmitted] = useState(false);
 
-  useEffect(() => {
-    const userData = JSON.parse(localStorage.getItem('userData'));
-    if (userData && userData.name) {
-      setSellerName(userData.name);
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+
+    // Optional: you can navigate after a delay if needed
+    // setTimeout(() => {
+    //   navigate('/profile', { state: { name, email, phone, profilePic } });
+    // }, 2000);
+  };
+
+  const handleProfilePicChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setProfilePic(URL.createObjectURL(file));
     }
-  }, []);
-
-  const handleSelection = (value) => {
-    setSelection(value);
   };
 
   return (
-    <div className="seller-container">
-      <h2 className="title">Hello {sellerName}, What would you like to sell?</h2>
+    <div className="form-container">
+      {!submitted ? (
+        <>
+          <h2>Seller Enrollment</h2>
+          <form onSubmit={handleSubmit}>
+            <label>Full Name:</label>
+            <input 
+              type="text" 
+              value={name} 
+              onChange={(e) => setName(e.target.value)} 
+              required 
+            />
 
-      <div className="selection-boxes">
-        <div
-          className={`option-box ${selection === 'animal' ? 'selected' : ''}`}
-          onClick={() => handleSelection('animal')}
-        >
-          🐄 Sell Animal
-        </div>
-        <div
-          className={`option-box ${selection === 'meat' ? 'selected' : ''}`}
-          onClick={() => handleSelection('meat')}
-        >
-          🍖 Sell Meat
-        </div>
-        <div
-          className={`option-box ${selection === 'both' ? 'selected' : ''}`}
-          onClick={() => handleSelection('both')}
-        >
-          🐄+🍖 Sell Both
-        </div>
-      </div>
+            <label>Email:</label>
+            <input 
+              type="email" 
+              value={email} 
+              onChange={(e) => setEmail(e.target.value)} 
+              required 
+            />
 
-      {selection === 'animal' || selection === 'both' ? (
-        <div className="form-section">
-          <h3>Animal Details</h3>
-          <input type="text" placeholder="Animal Type" />
-          <input type="text" placeholder="Animal Name" />
-          <input type="text" placeholder="Breed" />
-          <input type="number" placeholder="Age (in years)" />
-          <input type="number" placeholder="Weight (kg)" />
-          <input type="number" placeholder="Price per animal (PKR)" />
-          <textarea placeholder="Description of the animal"></textarea>
-          <input type="file" multiple accept="image/*" />
-          <label>Availability Date:</label>
-          <input type="date" />
-        </div>
-      ) : null}
+            <label>Phone Number:</label>
+            <input 
+              type="tel" 
+              value={phone} 
+              onChange={(e) => setPhone(e.target.value)} 
+              required 
+            />
 
-      {selection === 'meat' || selection === 'both' ? (
-        <div className="form-section">
-          <h3>Meat Details</h3>
-          <input type="text" placeholder="Type of Meat (e.g. Beef, Mutton)" />
-          <input type="number" placeholder="Weight (kg)" />
-          <input type="number" placeholder="Price per kg (PKR)" />
-          <textarea placeholder="Description of the meat" />
-          <input type="file" multiple accept="image/*" />
-        </div>
-      ) : null}
+            <label>Upload Profile Picture:</label>
+            <input 
+              type="file" 
+              accept="image/*" 
+              onChange={handleProfilePicChange} 
+              required 
+            />
+            {profilePic && (
+              <div className="profile-pic-preview">
+                <img src={profilePic} alt="Preview" width="100" height="100" />
+              </div>
+            )}
 
-      {selection && (
-        <button className="submit-btn">Submit Listing</button>
+            <button type="submit">Submit</button>
+          </form>
+        </>
+      ) : (
+        <div className="welcome-message">
+          <h2>🎉 Welcome on board, <span>{name}</span>!</h2>
+          <p>Thank you for joining us as a seller. We're excited to have you on board!</p>
+        </div>
       )}
     </div>
   );
-}
+};
+
+export default SellerEnrollment;

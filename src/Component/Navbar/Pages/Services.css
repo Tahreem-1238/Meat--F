@@ -4,12 +4,12 @@
   justify-content: center;
   align-items: center;
   padding: 4rem 2rem;
-  background-color: #0a0a0a;
-  color: white;
+  background-color: #fff;
+  color: #333;
   max-width: 1200px;
   margin: auto;
   border-radius: 16px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   animation: fadeIn 0.8s ease-in-out;
 }
 
@@ -22,11 +22,12 @@
   font-size: 2.5rem;
   color: maroon;
   margin-bottom: 1rem;
+  font-weight: bold;
 }
 
 .services-text {
   font-size: 1.1rem;
-  color: #ddd;
+  color: #555;
   max-width: 800px;
   margin: auto;
   line-height: 1.6;
@@ -43,10 +44,10 @@
   padding: 12px;
   font-size: 16px;
   margin-top: 1rem;
-  background-color: #1c1c1c;
-  color: white;
+  background-color: #f5f5f5;
+  color: #333;
   border-radius: 10px;
-  border: 1px solid #333;
+  border: 1px solid #ccc;
   transition: all 0.3s ease-in-out;
 }
 
@@ -57,9 +58,11 @@
 }
 
 .services-select option {
-  background-color: #333;
+  background-color: white;
+  color: #333;
 }
 
+/* Animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -84,4 +87,17 @@
   .services-select {
     width: 100%;
   }
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
 }

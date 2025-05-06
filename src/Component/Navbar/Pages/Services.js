@@ -11,7 +11,7 @@ export default function Services() {
     { value: 'meat-donation', label: 'Meat Donation', description: 'Donate meat to the needy through our platform.' },
     { value: 'price-estimator', label: 'Price Estimator', description: 'Estimate animal prices based on market trends.' },
     { value: 'garbage-collector', label: 'Garbage Collector', description: 'Schedule garbage collection after sacrifice.' },
-    // { value: 'online-payments', label: 'Online Payments', description: 'Secure and easy payment options available.' },
+    { value: 'marketplace', label: 'Marketplace', description: 'Buy  meat online.' } // ✅ New Feature
   ];
 
   const handleChange = (e) => {
@@ -28,7 +28,7 @@ export default function Services() {
         <h2 className="services-heading">Welcome to Meatify Services</h2>
         <p className="services-text">
           Meatify is here to simplify your Eid and meat-related needs with a range of digital services. Whether it’s
-          booking a butcher, donating meat, estimating prices, or scheduling waste collection – we’ve got it all covered!
+          booking a butcher, donating meat, estimating prices, accessing the marketplace, or scheduling waste collection – we’ve got it all covered!
         </p>
       </div>
 
